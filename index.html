@@ -1,0 +1,85 @@
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>Ayan Chakraborty</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>* { font-family: "Open Sans", sans-serif; }</style>
+  <link rel="stylesheet" href="./style.css">
+</head>
+
+<body id="body">
+  <!-- <div id="particles-js"></div> -->
+  <div id="main-container">
+    <h1>Hello 💓 নমস্কার</h1>
+
+    <img id="image" src="./icons/logo.jpg" alt="Picture">
+
+    <h2>Ayan Chakraborty</h2>
+
+    <ul id="social-media-icons">
+      <li><a href="https://www.instagram.com/garden_with_ayan" title="Instagram" target="_blank"><img class="icon" src="./icons/instagram.png"></a></li>
+      <li><a href="https://www.twitter.com/captainAyan101" title="Twitter" target="_blank"><img class="icon" src="./icons/twitter.png"></a></li>
+      <li><a href="#" onclick="window.alert('My discord id is @captainayan#5716'); return false;" title="Discord @captainayan#5716"><img class="icon" src="./icons/discord.png"></a></li>
+      <li><a href="https://www.github.com/captainAyan" title="Github" target="_blank"><img class="icon" src="./icons/github.png"></a></li>
+      <li><a href="https://www.leetcode.com/captainayan" title="Leetcode" target="_blank"><img class="icon" src="./icons/leetcode.png"></a></li>
+      <li><a href="https://www.sololearn.com/Profile/6212313" title="Sololearn" target="_blank"><img class="icon" src="./icons/sololearn.png"></a></li>
+      <li><a href="https://www.codewars.com/users/captainayan" title="Codewars" target="_blank"><img class="icon" src="./icons/codewars.png"></a></li>
+    </ul>
+
+    <div id="description">
+
+      <p>
+        🙋‍♂️ Hi, I'm a <span id="age">-</span>-year-old, Indian self-taught programmer from Calcutta
+        with a Bachelors in Commerce.
+      </p>
+      <p>I'm a Full-stack Developer (MERN), and an Android Developer (Currently learning Flutter)</p>
+      <p>
+        You can download my resumé from here <a href="./resume.pdf" target="_blank"><b>Resumé</b></a>. 
+      </p>
+
+      <p>E-mail: <a href="mailto:ayanchakraborty105@gmail.com">ayanchakraborty105@gmail.com</a></p>
+
+    </div>
+
+    <form action="#">
+      <div class="switch">
+        <input id="switch" type="checkbox" class="switch-input">
+        <label for="switch" class="switch-label">Switch</label>
+      </div>
+    </form>
+  </div>
+  <script>
+
+    var isDark = true;
+
+    window.onload = () => {
+      const age = parseInt(((new Date()) - (new Date(2000, 0, 8)))/1000/60/60/24/365);
+      document.getElementById("age").innerText = `${age}`;
+
+      if(localStorage.getItem("isDarkMode") == "true") isDark = true;
+      else isDark = false;
+
+      document.getElementById("switch").checked = isDark;
+      document.getElementById("switch").addEventListener("change", (e) => {
+        isDark = e.target.checked;
+        localStorage.setItem("isDarkMode", isDark);
+        toggleColorModes(isDark);
+      });
+
+      toggleColorModes(isDark);
+
+    };
+
+    function toggleColorModes(isDark) {
+      if (isDark) {
+        document.getElementById("body").classList.add("dark")
+        document.getElementById("image").src="./icons/logo_dark.jpg"
+      }
+      else {
+        document.getElementById("body").classList.remove("dark")
+        document.getElementById("image").src="./icons/logo.jpg"
+      }
+    }
+  </script>
+</body>
+</html>
